@@ -23,7 +23,8 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
-
+script_run.py
+perf_test.py
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
@@ -87,3 +88,12 @@ ENV/
 
 # Rope project settings
 .ropeproject
+.idea/encodings.xml
+.idea/hypr-sdk.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/inspectionProfiles/Project_Default.xml
+/sdk/influencers/__init__.py
