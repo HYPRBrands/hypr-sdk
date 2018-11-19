@@ -74,6 +74,6 @@ def full(public_name=None, guid=None):
 
 
 def export(guids, template='default'):
-    result = api_request('GET', BASE_PATH + 'export/pdf/?template={template}'.format(template=template), json={'influencers': guids})
+    result = api_request('POST', BASE_PATH + 'export/pdf/?template={template}'.format(template=template), json={'influencers': guids})
 
     return result.json()

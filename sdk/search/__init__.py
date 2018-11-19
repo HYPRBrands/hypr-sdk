@@ -8,7 +8,7 @@ BASE_URL = 'search/'
 def _reslove_query_params(verticals, query_params, page=1):
     allowed = ['age_groups',
                'ethnic_groups',
-               'countries',
+               'locations',
                'gender',
                'social_networks',
                'min_followers',
@@ -16,7 +16,7 @@ def _reslove_query_params(verticals, query_params, page=1):
                'influencer_city']
 
     # validate verticals ? or let api fail
-    query_params_str = '?verticals={ids}'.format(ids=','.join(map(str, verticals)))
+    query_params_str = '?&verticals={ids}'.format(ids=','.join(map(str, verticals)))
 
     if query_params:
         for param in query_params:

@@ -23,16 +23,14 @@ with open('sdk/__init__.py', 'r') as fd:
 if not version:
     raise RuntimeError('Cannot find version information')
 
-with open('README.rst', 'r', 'utf-8') as f:
+with open('README.md', 'r', 'utf-8') as f:
     readme = f.read()
-with open('HISTORY.rst', 'r', 'utf-8') as f:
-    history = f.read()
 
 setup(
     name='hypr-sdk',
     version=version,
     description='SDK for HYPR\'s API.',
-    long_description=readme + '\n\n' + history,
+    long_description=readme,
     author='Daniel Dubovski',
     author_email='daniel@hyprbrands.com',
     url='http://developers.hyprbrands.com',
@@ -42,7 +40,7 @@ setup(
     license='Proprietary',
     zip_safe=False,
     classifiers=(
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 0.1.0',
         'Intended Audience :: Developers',
         'Natural Language :: English',
         'License :: Proprietary',

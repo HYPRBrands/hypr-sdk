@@ -21,7 +21,7 @@ def avg_followers():
 
     followers = {}
 
-    if first_page['total_results'] > 0:
+    if first_page['results'] > 0:
         for influencer_result in first_page['results']:
             for network_stats in influencers.social(public_name=influencer_result['public_name']):
                 network_id = network_stats['social_network']['id']
@@ -75,6 +75,9 @@ def vertical_similiarity_score():
 def find_influencers_like_this_guy(name='some_influencer', pick_random=False):
     results = search.by_text(name)['results']
 
+    if not results:
+        return 'no influencers found'
+
     indx = 0
     if pick_random:
         indx = random.randint(0, len(results) - 1)
@@ -115,17 +118,17 @@ def upload_custom_photos():
     account.upload_influencer_pic(public_name, 1, my_dog)
 
     influencer_settings = account.get_influencer_pic(public_name)
-    return influencers['pictures']
+    return influencer_settings['pictures']
 
 
 def search_and_export():
     # fashion: 12
     # ages 26-32: 3
-    # from the US : 248
+    # from the US : 244
     # first 5 pages
     results = []
     for page in range(1, 6):
-        results = results + search.by_params(verticals=[12], age_groups=[3], countries=[248], page=1)['results']
+        results = results + search.by_params(verticals=[12], age_groups=[3], locations=[244], page=1)['results']
 
     from pprint import pprint
     first_2 = results[:2]
@@ -134,4 +137,4 @@ def search_and_export():
 
     guids_to_export = [result['guid'] for result in results[:3]]
     export_result = influencers.export(guids_to_export, template='default')
-    print export_result['url']
+    print export_result['pdfUrl']
